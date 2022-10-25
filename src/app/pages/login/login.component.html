@@ -7,24 +7,43 @@
             <img src="../../../assets/logo.png" alt="" style="width: 80px" />
           </div>
           <h1 class="text-center">Login here</h1>
-          <form action="">
+          {{loginData|json}}
+          <form (ngSubmit)="formSubmit()">
             <!-- Username field -->
             <mat-form-field appearance="outline" class="full-width">
               <mat-label>User Name</mat-label>
-              <input required matInput placeholder="Enter here" />
+              <input
+                name="userName"
+                [(ngModel)]="loginData.userName"
+                required
+                matInput
+                placeholder="Enter here"
+              />
               <mat-hint>Valid user name</mat-hint>
             </mat-form-field>
             <!-- Password field -->
             <mat-form-field appearance="outline" class="full-width">
               <mat-label>Password</mat-label>
-              <input required matInput placeholder="Enter here" />
+              <input
+                name="password"
+                [(ngModel)]="loginData.password"
+                required
+                matInput
+                placeholder="Enter here"
+                type="password"
+              />
               <mat-hint>Valid password</mat-hint>
             </mat-form-field>
             <div class="container text-center">
               <button type="submit" mat-raised-button color="primary">
                 Login
               </button>
-              <button type="submit" mat-raised-button color="accent" class="ml20">
+              <button
+                type="submit"
+                mat-raised-button
+                color="accent"
+                class="ml20"
+              >
                 Reset
               </button>
             </div>
